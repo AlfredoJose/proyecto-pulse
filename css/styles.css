@@ -1,42 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 
-@font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?acu7sx');
-	src:url('fonts/icomoon.eot?#iefixacu7sx') format('embedded-opentype'),
-		url('fonts/icomoon.woff?acu7sx') format('woff'),
-		url('fonts/icomoon.ttf?acu7sx') format('truetype'),
-		url('fonts/icomoon.svg?acu7sx#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+.icon-star{
+	width: 20px;
 }
-
-[class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+.icon-up{
+	width: 20px;
 }
-
-.icon-lapiz:before {
-	content: "\e600";
+.icon-down{
+	width: 20px;
 }
-.icon-flecha-u:before {
-	content: "\e601";
-}
-.icon-flecha-a:before {
-	content: "\e602";
-}
-.icon-strella:before {
-	content: "\e603";
+.icon-com{
+	width: 20px;
 }
 
 
@@ -189,11 +164,15 @@ header #avatar{
 }
 #contenido .item .imagen-item img{
 	width: 150px;
+	height: 200px;
 	margin: 0;
 
 }
 #contenido .item .titulo_item{
 	font-size: 1em;
+	width: 150px;
+	height: 55px;
+	overflow: hidden;
 	padding: 1em 1em 0 0; 
 	font-style: italic;
 
