@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="La primera comunidad online para publicar tu negocio gratis" />
+	<title>OAPP: La mejor comunidad online para publicar tu negocio</title>
+	<link rel="shortcut icon" href="../static/img/logo-logo.png">
+	<link rel="stylesheet" href="../static/css/normalize.css">
+	<link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+	<header>
+		<figure id="logo">
+			<img src="../static/img/logo-logo.png" alt="">
+		</figure>
+		<h1>OAPP: La mejor Comunidad Para Compartir Tu negocio</h1>
+		<figure id="avatar">
+			<img src="../static/img/avatar.png" alt="">
+		</figure>
+	</header>
+	<nav>
+		<ul>
+		{% for cat in categorias %}
+			<li><a href="{% url "categoria" cat.pk %}">{{cat}}</a></li>
+		{% endfor %}
+			<li id="publicar-nav">
+				<a href="{% url "add" %}">Publicar</a>
+			</li>
+		</ul>
+	</nav>
+	{% if not request.user.is_authenticated %}
+	<aside>
+		<form action="" method="POST">
+			<p id="titulo_form">Entra a OAPP</p>
+			<input type="submit" value="Conectate con Facebook" class="facebook" name="entrar">
+			<input type="submit" value="Conectate con Twitter" class="tw" name="entrar">
+		</form>
+	</aside>
+	{% endif %}
+	<section id="contenido">
+	    <form method="POST">
+	    <div id="form">
+	        {% csrf_token %}
+		    {{form.as_p}}
+		    <input type="submit">
+		<form>
+		</div>
+	</section>
+	<footer>
+		<p><strong>Powered by OAPP</strong></p>
+		<p>OAPP.com.ve 2014</p>
+	</footer>
+</body>
+</html>

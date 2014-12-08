@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="La primera comunidad online para publicar tu negocio gratis" />
+	<title>OAPP: La mejor comunidad online para publicar tu negocio</title>
+	<link rel="shortcut icon" href="../static/img/logo-logo.png">
+	<link rel="stylesheet" href="../static/css/normalize.css">
+	<link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+	<header>
+		<figure id="logo">
+			<img src="../static/img/logo-logo.png" alt="">
+		</figure>
+		<h1>OAPP: La mejor Comunidad Para Compartir Tu negocio</h1>
+		<figure id="avatar">
+			<img src="../static/img/avatar.png" alt="">
+		</figure>
+	</header>
+	<nav>
+		<ul>
+		 {% for cat in categorias %}
+			<li><a href="{% url "categoria" cat.pk %}">{{cat}}</a></li>
+		{% endfor %}
+			<li id="publicar-nav">
+				<a href="{% url "add" %}">Publicar</a>
+			</li>
+		</ul>
+	</nav>
+	<span id="user"> Hola {{request.user}}</span> 
+	{% if not request.user.is_authenticated %}
+	<aside>
+		<form action="" method="POST">
+			<p id="titulo_form">Entra a OAPP</p>
+			<input type="submit" value="Conectate con Facebook" class="facebook" name="entrar">
+			<input type="submit" value="Conectate con Twitter" class="tw" name="entrar">
+		</form>
+	</aside>
+	{% endif %}
+
+	<section id="contenido">
+		{% if enlaces %}
+	    
+	    {% for enlace in enlaces %}
+		<article class="item">
+			<figure class="imagen-item">
+				<img src"{{MEDIA_URL}}{{imagen.media}}" alt="">
+			</figure>
+			<h2 class="titulo_item">
+				<a href="{{enlace.enlace}}">{{enlace.titulo}}</a>
+			</h2>
+			<p class="autor_item">
+				Por <a href="#">{{enlace.usuario}}</a>
+			</p>
+			<div class="datos_item">
+				<a href="#" class="tag_item">{{enlace.categoria}}</a>
+				<span class="fecha_item">Hace <strong>{{enlace.timestamp|timesince}}</strong></span>
+			</div>
+			<div class="votacion">	
+				<a href="{% url "plus" enlace.pk %}" class="up"><img class="icon-up" src="../static/icon/up.png" alt=""></a>
+				<span>{{enlace.votos}}</span>
+				<a href="{% url "minus" enlace.pk %}" class="down"><img class="icon-down" src="../static/icon/down.png" alt=""></a>
+				<a href="#" class="comentarios_item"><img class="icon-com" src="../static/icon/com.png" alt=""></a>
+				<a href="#" class="guardar_item"><img class="icon-star" src="../static/icon/star.png" alt=""></a>
+			</div>
+		</article>
+	{% endfor %}
+		{% else %}
+		    NO HAY ENLACES GUARDADOS Agrega!
+		{% endif %}
+	</section>
+	<footer>
+		<p><strong>Powered by OAPP</strong></p>
+		<p>OAPP.com.ve 2014</p>
+	</footer>
+</body>
+</html>

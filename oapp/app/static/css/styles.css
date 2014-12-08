@@ -13,7 +13,14 @@
 .icon-com{
 	width: 20px;
 }
-
+#user{
+	color: #444;
+	font-style: italic;
+	font-size: 1em;
+	margin-top: -30px;
+	margin-left: 1150px;
+	position: absolute;
+}
 
 body{
 	background: #E9EAED;
@@ -275,20 +282,35 @@ aside{
 		border: 0px;
 		background: #DCDCDC;
 	}
-	input[type="submit"]{
+	.facebook{
 		margin: 20px;
 		width: 360px;
 		height: 40px;
 		outline: none;
 		margin-bottom: 20px;
 		border: 0px;
-		background: #75b6dc;
+		background: #3B5999;
+		color: white;
+		font-size: 1.2em;
+		border-radius: 5px;
+		transition: 0.3s all;
+		box-shadow: 0px 5px 0px #384f7f;
+	}
+	 .tw{
+		margin: 20px;
+		width: 360px;
+		height: 40px;
+		outline: none;
+		margin-bottom: 20px;
+		border: 0px;
+		background: #60A9DE;
 		color: white;
 		font-size: 1.2em;
 		border-radius: 5px;
 		transition: 0.3s all;
 		box-shadow: 0px 5px 0px #659DBF;
 	}
+
 	input[type="submit"]:hover{
 		box-shadow: 0px 5px 0px #5f90ad;
 		background: #71a6c4;
