@@ -4,22 +4,21 @@ from models import *
 from forms import * 
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+#Create your views here.
 
 
 def home(request):
     categorias = Categoria.objects.all()
     enlaces = Enlace.objects.order_by("-votos").all()
     template = "index.html"
-    return render_to_response(template,{"categorias" : categorias, "enlaces":enlaces, "request":request})
+    return render_to_response(template,{"categorias" : categorias, "enlaces":enlaces, "request":request},context_instance=RequestContext(request))
 
 def categoria(request,id_categoria):
     categorias = Categoria.objects.all()
     cat = get_object_or_404(Categoria,pk = id_categoria)
-    #cat = Categoria.objects.get(pk = id_categoria)
     enlaces = Enlace.objects.filter(categoria = cat)
     template = "index.html"
-    return render_to_response(template,locals())
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 @login_required
 def minus(request,enlace_id):

@@ -20,6 +20,7 @@
 	margin-top: -30px;
 	margin-left: 1150px;
 	position: absolute;
+	display: none;
 }
 
 body{
@@ -228,6 +229,7 @@ aside{
 	#contenido .item:nth-child(odd){
 		margin-right: 2%;
 	}
+	
 
 }
 @media screen and (min-width: 1000px){
@@ -316,7 +318,14 @@ aside{
 		background: #71a6c4;
 	}
 	
-
+	#user{
+	color: #444;
+	font-style: italic;
+	font-size: 1em;
+	margin-top: -30px;
+	margin-left: 1150px;
+	position: absolute;
+}
 }
 
 

@@ -39,8 +39,9 @@
 	</aside>
 	{% endif %}
 	<section id="contenido">
-	    <form method="POST">
-	    <div id="form">
+	    <form method="POST" 
+	    >
+	    <div id="form" enctype='multipart/form-data'>
 	        {% csrf_token %}
 		    {{form.as_p}}
 		    <input type="submit">

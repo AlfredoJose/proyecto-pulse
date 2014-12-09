@@ -46,7 +46,7 @@
 	    {% for enlace in enlaces %}
 		<article class="item">
 			<figure class="imagen-item">
-				<img src"{{MEDIA_URL}}{{imagen.media}}" alt="">
+				<img src"{{MEDIA_URL}} {{ enlace.imagen }}" alt="">
 			</figure>
 			<h2 class="titulo_item">
 				<a href="{{enlace.enlace}}">{{enlace.titulo}}</a>

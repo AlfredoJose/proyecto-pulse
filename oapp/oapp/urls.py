@@ -1,5 +1,6 @@
 from django.conf.urls import *
 from django.conf import settings
+from django.template.context import RequestContext
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -8,10 +9,10 @@ urlpatterns = patterns('',
     # Examples:
     #url(r'^$', 'oapp.views.home', name='home'),
     url(r'^$', 'app.views.home', name='home'),
-    url(r'^categoria/(\d+)$', 'app.views.categoria', name='categoria'),
+    url(r'^cat/(\d+)$', 'app.views.categoria', name='categoria'),
     url(r'^plus/(\d+)$', 'app.views.plus', name='plus'),
     url(r'^minus/(\d+)$', 'app.views.minus', name='minus'),
-    url(r'^add/$', 'app.views.add', name='add'),
+    url(r'^add/$', 'app.views.add', context_instance=RequestContext(request), name='add'),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
     # url(r'^oapp/', include('oapp.foo.urls')),
 
@@ -19,5 +20,5 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-     url(r'^admin/', include(admin.site.urls)),
+     url(r'^admin/', include(admin.site.urls), context_instance=RequestContext(request)),
 )
